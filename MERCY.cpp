@@ -1,9 +1,9 @@
-//
-//  MERCY.cpp
-//  Algospot
-//
-//  Created by Min Sung Kim on 2016. 12. 27..
-//  Copyright © 2016년 Min Sung Kim. All rights reserved.
-//
-
 #include <stdio.h>
+int main()
+{
+    int N;
+    scanf("%d", &N);
+    for (int i = 0; i < N; ++i)
+        printf("Hello Algospot!\n");
+    return 0;
+}
