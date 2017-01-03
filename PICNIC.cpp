@@ -39,8 +39,8 @@ int main()
             scanf("%d%d", &u, &v);
             areFriends[u][v] = areFriends[v][u] = true;
         }
-        bool selected[10] = { false, };
-        printf("%d\n", countParings(selected));
+        bool taken[10] = { false, };
+        printf("%d\n", countParings(taken));
     }
     return 0;
 }
