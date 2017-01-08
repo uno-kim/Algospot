@@ -4,7 +4,7 @@
 using namespace std;
 int T, N, M, u, v, ans;
 bool areFriends[10][10];
-// taken[i] : i ¹øÂ° ÇĞ»ıÀÌ Â¦À» Ã£¾ÒÀ¸¸é true
+// taken[i] : i ë²ˆì§¸ í•™ìƒì´ ì§ì„ ì°¾ì•˜ìœ¼ë©´ true
 int countParings(bool taken[10])
 {
     int from = -1;
@@ -14,7 +14,7 @@ int countParings(bool taken[10])
             from = i;
             break;
         }
-    if (from == -1) return 1; // Â¦À» ¸ğµÎ Ã£Àº °æ¿ì
+    if (from == -1) return 1; // ì§ì„ ëª¨ë‘ ì°¾ì€ ê²½ìš°
     int ret = 0;
     for (int to = from + 1; to < N; ++to)
         if (!taken[to] && areFriends[from][to])

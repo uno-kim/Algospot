@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-using namespace std;
+
 const int dy[8] = { -1, -1, -1, 0, 1, 1, 1, 0 };
 const int dx[8] = { -1, 0, 1, 1, 1, 0, -1, -1 };
 int T, N, L, cache[5][5][10];
 char board[5][6], input[11];
 
-// [y, x] ÁÂÇ¥¿¡ input[idx] ¿¡ ÇØ´çÇÏ´Â ±ÛÀÚ°¡ Á¸ÀçÇÏ´ÂÁö
+// [y, x] ì¢Œí‘œì— input[idx] ì— í•´ë‹¹í•˜ëŠ” ê¸€ìê°€ ì¡´ì¬í•˜ëŠ”ì§€
 int hasChar(int y, int x, int idx)
 {
     if (input[idx] != board[y][x]) return 0;
-    if (idx == L - 1) return 1; // ¸¶Áö¸· ±ÛÀÚ±îÁö ¸Â¾ÒÀ¸¸é ¼º°ø
+    if (idx == L - 1) return 1; // ë§ˆì§€ë§‰ ê¸€ìê¹Œì§€ ë§ì•˜ìœ¼ë©´ ì„±ê³µ
     int &ret = cache[y][x][idx];
     if (ret != -1) return ret;
     ret = 0;
@@ -47,7 +47,7 @@ int main()
         for (int i = 0; i < N; ++i)
         {
             scanf("%s", input);
-            L = strlen(input);
+            L = (int)strlen(input);
             bool ret = solve();
             printf("%s %s\n", input, ret ? "YES" : "NO");
         }
