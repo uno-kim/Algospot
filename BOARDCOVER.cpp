@@ -2,7 +2,7 @@
 using namespace std;
 int T, H, W;
 char board[50][51];
-
+// (y, x) 가 주어졌을 때 다음 빈칸을 (ny, nx) 로 반환
 void nextPos(int y, int x, int& ny, int &nx)
 {
     for (int xx = x + 1; xx < W; ++xx)
