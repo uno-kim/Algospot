@@ -1,9 +1,9 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 int T;
-char mem[200002], fan[200002]; // ¸â¹ö,  ÆÒ
-int memLen, fanLen, fanMaleLen; // ¸â¹ö¼ıÀÚ, ÆÒ¼ıÀÚ, ÆÒÁß³²ÀÚ¼ıÀÚ
-int memMaleArr[200002]; // ¸â¹ö Áß ³²ÀÚ index ¹è¿­
-int memMaleIdx; // ¸â¹ö Áß ³²ÀÚ index ¹è¿­ÀÇ ¼ıÀÚ
+char mem[200002], fan[200002]; // ë©¤ë²„,  íŒ¬
+int memLen, fanLen, fanMaleLen; // ë©¤ë²„ìˆ«ì, íŒ¬ìˆ«ì, íŒ¬ì¤‘ë‚¨ììˆ«ì
+int memMaleArr[200002]; // ë©¤ë²„ ì¤‘ ë‚¨ì index ë°°ì—´
+int memMaleIdx; // ë©¤ë²„ ì¤‘ ë‚¨ì index ë°°ì—´ì˜ ìˆ«ì
 
 int solve()
 {
@@ -22,9 +22,9 @@ int solve()
     int ret = fanLen - memLen + 1;
     if (memMaleIdx == 0 || fanMaleLen == 0) return ret;
     int loop = fanLen - memLen;
-    for (int f = 0; f <= loop; ++f) // ÆÒÀÇ ½ÃÀÛ index
-        for (int m = 0; m < memMaleIdx; ++m) // ¸â¹öÁß ³²ÀÚ¸¸ ºñ±³
-            if (fan[f + memMaleArr[m]] == 'M') // M + M Á¶ÇÕÀÌ¸é ´ä¿¡¼­ »«´Ù.
+    for (int f = 0; f <= loop; ++f) // íŒ¬ì˜ ì‹œì‘ index
+        for (int m = 0; m < memMaleIdx; ++m) // ë©¤ë²„ì¤‘ ë‚¨ìë§Œ ë¹„êµ
+            if (fan[f + memMaleArr[m]] == 'M') // M + M ì¡°í•©ì´ë©´ ë‹µì—ì„œ ëº€ë‹¤.
             {
                 ret--;
                 break;
