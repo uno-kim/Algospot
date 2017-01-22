@@ -1,37 +1,37 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <string.h>
 #include <algorithm>
 using namespace std;
-int T, N, K, arr[10000];
+const int NAX_N = std::numeric_limits<int>::max();
+int T, N, K, k, c, arr[10000];
+double loss;
 int solve()
 {
-    int ret = 2147483647;
+    int ret = NAX_N;
     memset(arr, -1, sizeof(arr));
-    int k, c;
-    double cache;
-    for (int i = 0; i <= N; ++i) // Çö±ÝÀ¸·Î ÆÇ¸ÅÇÑ °³¼ö i ¸¦ ÁÙ¾î¾ß ÇÔ
+    // í˜„ê¸ˆìœ¼ë¡œ i ê°œë¥¼ êµ¬ìž…ì‹œ ìˆ˜í‘œë¡œëŠ” (N - i) ê°œ êµ¬ìž…í•˜ê²Œ ë¨
+    for (int i = 0; i <= N; ++i)
     {
-        // ¼öÇ¥·Î ¹ö·ÁÁö´Â ±Ý¾×
+        // ìˆ˜í‘œë¡œ êµ¬ìž…ì‹œ ì†ì‹¤ê¸ˆì•¡ì´ k ì›ì¼ ë•Œ, í˜„ê¸ˆ êµ¬ë§¤ì‹œ ìµœì†Œ ì†ì‹¤ì´ ë°œìƒí•˜ëŠ” i ë¥¼ ì €ìž¥: arr[k] = i
         k = ((N - i) * K) % 10000;
         if (arr[k] != -1) break;
-        arr[k] = i;
+        arr[k] = i; 
     }
-    for (int i = 0; i < 10000; ++i)
+    for (int k = 0; k < 10000; ++k)
     {
-        if (arr[i] == -1) continue;
-        // Çö±ÝÀ¸·Î ¹ö·ÁÁö´Â ±Ý¾×
-        cache = arr[i] * K / 10.0;
-        c = (int)cache;
-        if (cache > (double)c) c++;
-        ret = min(ret, i + c);
+        if (arr[k] == -1) continue;
+        // ìˆ˜í‘œ ì†ì‹¤ê¸ˆì•¡ k + í˜„ê¸ˆ ì†ì‹¤ê¸ˆì•¡ (arr[k] * K) * 0.1 ì˜ ìµœì†Œê°’ì„ êµ¬í•œë‹¤
+        loss = arr[k] * K * 0.1;
+        c = (int)loss;
+        if (loss > (double)c) c++;
+        ret = min(ret, k + c);
     }
-    // ret ´Â ÃÖ¼Ò·Î ¹ö·ÁÁö´Â ±Ý¾×ÀÌ¹Ç·Î
     return (N * K) - ret;
 }
 
 int main()
 {
-    freopen("BILLS.txt", "rt", stdin);
+    //freopen("BILLS.txt", "rt", stdin);
     scanf("%d", &T);
     while (T--)
     {
