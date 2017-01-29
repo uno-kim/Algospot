@@ -43,16 +43,16 @@ double func(int idx, int val)
 {
     if (cache[idx][val] != -1) return cache[idx][val];
     double ret = 0.0;
-/* main() 함수 내에서 미리 계산완료함
+    /* main() 함수 내에서 미리 계산완료함
     if (idx == 0)
-        return ret = B[val] * M[val][query[idx]];
-*/
+    return ret = B[val] * M[val][query[idx]];
+    */
     for (int i = 0; i < m; ++i)
         ret = max(ret, func(idx - 1, i) * T[i][val] * M[val][query[idx]]);
     return cache[idx][val] = ret;
 }
 int choice[102]; // 최종 답안
-// 최대 확률이 계산되었을 때, 이것을 가지고 실제로 선택한 값을 만들어낸다.
+                 // 최대 확률이 계산되었을 때, 이것을 가지고 실제로 선택한 값을 만들어낸다.
 void reconstruct()
 {
     double d = 0;
@@ -94,7 +94,7 @@ int main()
         for (int j = 0; j < m; ++j)
             scanf("%lf", &M[i][j]);
     // q 줄에 단어의 수 n 과, n 개의 단어로 분류기 인식 결과가 주어짐
-    while(q--)
+    while (q--)
     {
         scanf("%d", &n);
         for (int i = 0; i < n; ++i)
