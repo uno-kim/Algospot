@@ -3,4 +3,4 @@ project(algospot)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-add_executable(algospot main.cpp)
+add_executable(algospot BOGGLE_20200104_01.cpp)
