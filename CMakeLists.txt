@@ -3,4 +3,4 @@ project(algospot)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-add_executable(algospot PICNIC_20200104_01.cpp)
+add_executable(algospot BOARDCOVER_20200104_01.cpp)
