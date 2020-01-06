@@ -3,4 +3,4 @@ project(algospot)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-add_executable(algospot TSP1_20200106_1.cpp)
+add_executable(algospot CLOCKSYNC_20200106_02.cpp)
